@@ -6,7 +6,8 @@
   "files": [
     "lib",
     "src",
-    "assets"
+    "assets",
+    "index.js"
   ],
   "repository": {
     "type": "git",

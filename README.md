@@ -1,30 +1,30 @@
-# mobile-react-code-input
+# react-input-code-pretty
 ---
 
-mobile-react-code-input
+react-input-code-pretty
 
 [![build status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
 
-[travis-image]: https://travis-ci.org/konna/mobile-react-code-input.svg?style=flat-square
-[travis-url]: https://travis-ci.org/konna/mobile-react-code-input
-[npm-image]: https://img.shields.io/npm/v/mobile-react-code-input.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/mobile-react-code-input
-[coveralls-image]: https://coveralls.io/repos/github/konna/mobile-react-code-input/badge.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/github/konna/mobile-react-code-input?branch=master
-[download-image]: https://img.shields.io/npm/dm/mobile-react-code-input.svg?style=flat-square
-[download-url]: https://npmjs.org/package/mobile-react-code-input
+[travis-image]: https://travis-ci.org/konna/react-input-code-pretty.svg?style=flat-square
+[travis-url]: https://travis-ci.org/konna/react-input-code-pretty
+[npm-image]: https://img.shields.io/npm/v/react-input-code-prettyt.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/react-input-code-pretty
+[coveralls-image]: https://coveralls.io/repos/github/konna/react-input-code-pretty/badge.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/github/konna/react-input-code-pretty?branch=master
+[download-image]: https://img.shields.io/npm/dm/react-input-code-pretty.svg?style=flat-square
+[download-url]: https://npmjs.org/package/react-input-code-pretty
 
 ## install
 
-[![mobile-react-code-input](https://nodei.co/npm/mobile-react-code-input.png)](https://npmjs.org/package/mobile-react-code-input)
+[![react-input-code-pretty](https://nodei.co/npm/react-input-code-pretty.png)](https://npmjs.org/package/react-input-code-pretty)
 
 ## Usage
 
 ```js
-var VerifyCode = require('mobile-react-code-input');
+var VerifyCode = require('react-input-code-pretty');
 var React = require('react');
 React.render(<VerifyCode />, container);
 ```
@@ -67,7 +67,7 @@ React.render(<VerifyCode />, container);
 ## Development
 
 ```
-npm install mobile-react-code-input --save
+npm install react-input-code-pretty --save
 npm start
 ```
 

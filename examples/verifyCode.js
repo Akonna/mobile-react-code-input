@@ -1,7 +1,7 @@
 require('../assets/index.less');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const VerifyCode = require('mobile-react-code-input');
+const VerifyCode = require('react-input-code-pretty');
 
 const Test = React.createClass({
  useCodeFun(valuestr){

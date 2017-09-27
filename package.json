@@ -1,7 +1,7 @@
 {
   "name": "react-input-code-pretty",
   "version": "1.0.0",
-  "description": "",
+  "description": "react input code",
   "main": "lib/index",
   "files": [
     "lib",

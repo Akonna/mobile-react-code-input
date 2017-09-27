@@ -43,6 +43,18 @@ React.render(<VerifyCode />, container);
     </tr>
     </thead>
     <tbody>
+           <tr>
+              <td>isShow</td>
+              <td>Boolean</td>
+              <td>false</td>
+              <td>false 不显示按钮，true 为显示按钮，处理code逻辑</td>
+            </tr>
+            <tr>
+              <td>btnText</td>
+              <td>String</td>
+              <td>无</td>
+              <td>按钮内容文本</td>
+            </tr>
         <tr>
           <td>useCodeFun</td>
           <td>fun</td>

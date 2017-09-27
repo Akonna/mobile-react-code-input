@@ -1,0 +1,57 @@
+{
+  "name": "mobile-react-code-input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index",
+  "files": [
+    "lib",
+    "src",
+    "assets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Akonna/mobile-react-code-input.git"
+  },
+  "keywords": [
+    "react",
+    "mobile",
+    "code",
+    "input"
+  ],
+  "config": {
+    "port": 8001
+  },
+  "scripts": {
+    "build": "rc-tools run build",
+    "gh-pages": "rc-tools run gh-pages",
+    "start": "rc-server",
+    "pub": "rc-tools run pub",
+    "lint": "rc-tools run lint",
+    "karma": "rc-tools run karma",
+    "saucelabs": "rc-tools run saucelabs",
+    "browser-test": "rc-tools run browser-test",
+    "browser-test-cover": "rc-tools run browser-test-cover"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "pre-commit": "1.x",
+    "rc-server": "3.x",
+    "rc-tools": "4.x",
+    "react": "^0.14.0",
+    "react-addons-test-utils": "~0.14.0",
+    "react-dom": "~0.14.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.1"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "author": "konna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akonna/mobile-react-code-input/issues"
+  },
+  "homepage": "https://github.com/Akonna/mobile-react-code-input#readme"
+
+}

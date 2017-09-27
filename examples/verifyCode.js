@@ -19826,7 +19826,7 @@ webpackJsonp([0,1],[
 	
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'pretty' },
 	      React.createElement(
 	        'div',
 	        { className: 'box' },

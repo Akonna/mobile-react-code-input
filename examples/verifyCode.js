@@ -19885,10 +19885,8 @@ webpackJsonp([0,1],[
 	  render: function render() {
 	    if (!this.props.isShow) {
 	      if (this.refs.one != undefined && this.refs.two != undefined && this.refs.three != undefined) {
-	        if (this.refs.one.value && this.refs.two.value && this.refs.three.value) {
-	          var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
-	          this.props.useCodeFun(input_val);
-	        }
+	        var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
+	        this.props.useCodeFun(input_val);
 	      }
 	    }
 	    return React.createElement(

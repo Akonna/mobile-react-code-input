@@ -123,19 +123,17 @@ const VerifyCode = React.createClass({
   render() {
     if(!this.props.isShow){
       if(this.refs.one!=undefined && this.refs.two!=undefined && this.refs.three!=undefined){
-        if(this.refs.one.value &&this.refs.two.value && this.refs.three.value ){
           let input_val =this.refs.one.value + this.refs.two.value + this.refs.three.value;
           this.props.useCodeFun(input_val);
-        }
       }
     }
     return (
       <div className="pretty">
         <div className="box">
-          <input type="tel" className="inputbox select" maxLength="1" ref="one" onChange={this.one} onFocus={this.commonfun}/>
-          <input type="tel" className={this.state.flag_two ? "inputbox select" : "inputbox"} maxLength="1" ref="two"
+          <input type="number" pattern="\d*"  className="inputbox select" maxLength="1" ref="one" onChange={this.one} onFocus={this.commonfun}/>
+          <input type="number" pattern="\d*"  className={this.state.flag_two ? "inputbox select" : "inputbox"} maxLength="1" ref="two"
                  onChange={this.two} onFocus={this.commonfun}/>
-          <input type="tel" className={this.state.flag_three ? "inputbox select" : "inputbox"} maxLength="1" ref="three"
+          <input type="number" pattern="\d*"  className={this.state.flag_three ? "inputbox select" : "inputbox"} maxLength="1" ref="three"
                  onChange={this.three} onFocus={this.commonfun}/>
         </div>
 

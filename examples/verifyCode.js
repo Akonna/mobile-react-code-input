@@ -19895,10 +19895,10 @@ webpackJsonp([0,1],[
 	      React.createElement(
 	        'div',
 	        { className: 'box' },
-	        React.createElement('input', { type: 'tel', className: 'inputbox select', maxLength: '1', ref: 'one', onChange: this.one, onFocus: this.commonfun }),
-	        React.createElement('input', { type: 'tel', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: '1', ref: 'two',
+	        React.createElement('input', { type: 'number', pattern: '\\d*', className: 'inputbox select', maxLength: '1', ref: 'one', onChange: this.one, onFocus: this.commonfun }),
+	        React.createElement('input', { type: 'number', pattern: '\\d*', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: '1', ref: 'two',
 	          onChange: this.two, onFocus: this.commonfun }),
-	        React.createElement('input', { type: 'tel', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: '1', ref: 'three',
+	        React.createElement('input', { type: 'number', pattern: '\\d*', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: '1', ref: 'three',
 	          onChange: this.three, onFocus: this.commonfun })
 	      ),
 	      this.props.isShow ? this.state.code == 'Y' ? React.createElement(

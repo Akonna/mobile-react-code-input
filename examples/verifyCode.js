@@ -67,6 +67,12 @@ webpackJsonp([1],{
 	  },
 	
 	  one: function one(event) {
+	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+	
+	    if (!re.test(event.target.value)) {
+	      event.target.value = "";
+	    }
+	
 	    if (event.target.value && !this.refs.two.value) {
 	      this.refs.two.focus();
 	      this.setState({
@@ -96,6 +102,11 @@ webpackJsonp([1],{
 	  },
 	
 	  two: function two(event) {
+	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+	
+	    if (!re.test(event.target.value)) {
+	      event.target.value = "";
+	    }
 	    if (!this.refs.one.value) {
 	      this.refs.one.focus();
 	    }
@@ -124,6 +135,11 @@ webpackJsonp([1],{
 	  },
 	
 	  three: function three(event) {
+	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+	
+	    if (!re.test(event.target.value)) {
+	      event.target.value = "";
+	    }
 	    if (!this.refs.one.value) {
 	      this.refs.one.focus();
 	    }

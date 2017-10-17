@@ -127,7 +127,7 @@ webpackJsonp([1],{
 	    if (!this.refs.one.value) {
 	      this.refs.one.focus();
 	    }
-	    if (!this.refs.two.value) {
+	    if (this.refs.one.value && !this.refs.two.value) {
 	      this.refs.two.focus();
 	    }
 	    if (event.target.value) {
@@ -159,6 +159,15 @@ webpackJsonp([1],{
 	    }
 	  },
 	
+	  common: function common() {
+	    if (!this.refs.one.value) {
+	      this.refs.one.focus();
+	    }
+	    if (this.refs.one.value && !this.refs.two.value) {
+	      this.refs.two.focus();
+	    }
+	  },
+	
 	  useCodeFun: function useCodeFun() {
 	    var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
 	    this.props.useCodeFun(input_val);
@@ -176,11 +185,11 @@ webpackJsonp([1],{
 	      React.createElement(
 	        'div',
 	        { className: 'box' },
-	        React.createElement('input', { onkeyup: 'this.value=this.value.replace(/[^\\d.]/g,\'\')', type: 'number', pattern: '\\d*', className: 'inputbox select', maxLength: '1', ref: 'one', onChange: this.one }),
-	        React.createElement('input', { onkeyup: 'this.value=this.value.replace(/[^\\d.]/g,\'\')', type: 'number', pattern: '\\d*', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: '1', ref: 'two',
-	          onChange: this.two }),
-	        React.createElement('input', { onkeyup: 'this.value=this.value.replace(/[^\\d.]/g,\'\')', type: 'number', pattern: '\\d*', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: '1', ref: 'three',
-	          onChange: this.three })
+	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: 'inputbox select', maxLength: "1", ref: 'one', onChange: this.one }),
+	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: "1", ref: 'two',
+	          onChange: this.two, onFocus: this.common }),
+	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: "1", ref: 'three',
+	          onChange: this.three, onFocus: this.common })
 	      ),
 	      this.props.isShow ? this.state.code == 'Y' ? React.createElement(
 	        'div',

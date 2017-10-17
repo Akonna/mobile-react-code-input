@@ -1,6 +1,6 @@
 {
   "name": "react-input-code-pretty",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "react input code",
   "main": "lib/index",
   "files": [
@@ -54,5 +54,4 @@
     "url": "https://github.com/Akonna/mobile-react-code-input/issues"
   },
   "homepage": "https://github.com/Akonna/mobile-react-code-input#readme"
-
 }

@@ -23,6 +23,12 @@ const VerifyCode = React.createClass({
   },
  
    one(event) {
+     var re =  /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+
+     if (!re.test(event.target.value)) {
+       event.target.value="";
+     }
+
     if (event.target.value && !this.refs.two.value) {
       this.refs.two.focus();
       this.setState({
@@ -52,6 +58,14 @@ const VerifyCode = React.createClass({
   },
 
   two(event){
+    var re =  /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+
+    if (!re.test(event.target.value)) {
+      event.target.value="";
+    }
+    if(!this.refs.one.value){
+      this.refs.one.focus();
+    }
     if (event.target.value && !this.refs.three.value) {
       this.refs.three.focus();
       this.setState({
@@ -77,6 +91,17 @@ const VerifyCode = React.createClass({
   },
 
   three(event){
+    var re =  /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+
+    if (!re.test(event.target.value)) {
+      event.target.value="";
+    }
+    if(!this.refs.one.value){
+      this.refs.one.focus();
+    }
+    if(this.refs.one.value && !this.refs.two.value){
+      this.refs.two.focus();
+    }
     if (event.target.value) {
       this.refs.three.blur();
       this.setState({
@@ -106,13 +131,12 @@ const VerifyCode = React.createClass({
     }
   },
 
-  commonfun(){
-    if (!this.refs.one.value) {
+  common(){
+    if(!this.refs.one.value){
       this.refs.one.focus();
-    }else{
-      if(!this.refs.two.value){
-        this.refs.two.focus();
-      }
+    }
+    if(this.refs.one.value && !this.refs.two.value){
+      this.refs.two.focus();
     }
   },
 
@@ -130,11 +154,11 @@ const VerifyCode = React.createClass({
     return (
       <div className="pretty">
         <div className="box">
-          <input type="number" pattern="\d*"  className="inputbox select" maxLength="1" ref="one" onChange={this.one} onFocus={this.commonfun}/>
-          <input type="number" pattern="\d*"  className={this.state.flag_two ? "inputbox select" : "inputbox"} maxLength="1" ref="two"
-                 onChange={this.two} onFocus={this.commonfun}/>
-          <input type="number" pattern="\d*"  className={this.state.flag_three ? "inputbox select" : "inputbox"} maxLength="1" ref="three"
-                 onChange={this.three} onFocus={this.commonfun}/>
+          <input  type="text" pattern="\d*"  className="inputbox select" maxLength={"1"}  ref="one" onChange={this.one}/>
+          <input  type="text" pattern="\d*" className={this.state.flag_two ? "inputbox select" : "inputbox"}  maxLength={"1"}   ref="two"
+                 onChange={this.two}  onFocus={this.common}/>
+          <input  type="text" pattern="\d*"   className={this.state.flag_three ? "inputbox select" : "inputbox"}  maxLength={"1"}   ref="three"
+                 onChange={this.three} onFocus={this.common}/>
         </div>
 
         {

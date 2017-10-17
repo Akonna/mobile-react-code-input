@@ -185,10 +185,10 @@ webpackJsonp([1],{
 	      React.createElement(
 	        'div',
 	        { className: 'box' },
-	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: 'inputbox select', maxLength: "1", ref: 'one', onChange: this.one }),
-	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: "1", ref: 'two',
+	        React.createElement('input', { type: 'text', pattern: '\\d*', className: 'inputbox select', maxLength: "1", ref: 'one', onChange: this.one }),
+	        React.createElement('input', { type: 'text', pattern: '\\d*', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: "1", ref: 'two',
 	          onChange: this.two, onFocus: this.common }),
-	        React.createElement('input', { type: 'text', pattern: '\\d*', onkeyup: 'this.value=this.value.replace(/[^\\d]/g,\'\');', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: "1", ref: 'three',
+	        React.createElement('input', { type: 'text', pattern: '\\d*', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: "1", ref: 'three',
 	          onChange: this.three, onFocus: this.common })
 	      ),
 	      this.props.isShow ? this.state.code == 'Y' ? React.createElement(

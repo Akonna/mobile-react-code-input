@@ -71,7 +71,9 @@ webpackJsonp([1],{
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    if (!nextProps.empty) {
 	      this.setState({
-	        active: 0
+	        active: 0,
+	        twoFlag: false,
+	        threeFlag: false
 	      });
 	    }
 	  },

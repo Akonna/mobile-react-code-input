@@ -28,7 +28,7 @@ webpackJsonp([1],{
 	    return React.createElement(
 	      'div',
 	      { style: { margin: 0 } },
-	      React.createElement(VerifyCode, { isShow: true, useCodeFun: this.useCodeFun, btnText: '立即使用', empty: false })
+	      React.createElement(VerifyCode, { isShow: true, useCodeFun: this.useCodeFun, btnText: '立即使用' })
 	    );
 	  }
 	});
@@ -73,6 +73,9 @@ webpackJsonp([1],{
 	      this.setState({
 	        active: '0'
 	      });
+	      this.refs.one.value = "";
+	      this.refs.two.value = "";
+	      this.refs.three.value = "";
 	    }
 	  },
 	  componentDidMount: function componentDidMount() {

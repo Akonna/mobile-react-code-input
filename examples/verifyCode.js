@@ -58,130 +58,89 @@ webpackJsonp([1],{
 	      btnText: ''
 	    };
 	  },
+	
 	  getInitialState: function getInitialState() {
 	    return {
-	      flag_two: false,
-	      flag_three: false,
-	      code: "N"
+	      active: 0,
+	      twoFlag: false,
+	      threeFlag: false,
+	      code: 'N'
 	    };
 	  },
 	
-	  one: function one(event) {
+	  componentDidMount: function componentDidMount() {
+	
+	    var This = this;
+	    var inputBtn = document.querySelectorAll('input');
+	
+	    for (var i = 0; i < inputBtn.length; i++) {
+	
+	      inputBtn[i].addEventListener('focus', function (e) {
+	        e.preventDefault();
+	        this.addEventListener('keyup', This.listenKeyUp, false);
+	      }, false);
+	      inputBtn[i].addEventListener('blur', function (e) {
+	        e.preventDefault();
+	        this.removeEventListener('keyup', This.listenKeyUp, false);
+	      }, false);
+	    }
+	  },
+	  listenKeyUp: function listenKeyUp() {
+	    var inputBtn = document.querySelectorAll('input');
 	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
 	
 	    if (!re.test(event.target.value)) {
 	      event.target.value = "";
 	    }
+	    if (!isNaN(event.target.value) && event.target.value.length != 0) {
+	      if (this.state.active == "0" && !isNaN(event.target.value) && event.target.value.length != 0) {
+	        this.setState({
+	          twoFlag: true
+	        });
+	      } else if (this.state.active == "1" && !isNaN(event.target.value) && event.target.value.length != 0) {
+	        this.setState({
+	          threeFlag: true
+	        });
+	      }
+	      if (this.state.active < 2) {
+	        this.setState({
+	          active: this.state.active + 1
+	        });
+	      }
+	      inputBtn[this.state.active].focus();
+	    } else if (event.target.value.length == 0) {
+	      if (this.state.active == '2') {
+	        this.setState({
+	          threeFlag: false
+	        });
+	      }
+	      if (this.state.active == '1') {
+	        this.setState({
+	          twoFlag: false
+	        });
+	      }
+	      if (this.state.active > 0) {
+	        this.setState({
+	          active: this.state.active - 1
+	        });
+	      }
+	      inputBtn[this.state.active].focus();
+	    }
 	
-	    if (event.target.value && !this.refs.two.value) {
-	      this.refs.two.focus();
+	    if (this.refs.one.value && this.refs.two.value && this.refs.three.value) {
 	      this.setState({
-	        flag_two: true
-	      });
-	    }
-	    if (!event.target.value) {
-	      this.setState({
-	        code: 'N',
-	        flag_two: false
-	      });
-	    }
-	    if (!event.target.value && !this.refs.two.value) {
-	      this.setState({
-	        flag_two: false
+	        code: 'Y'
 	      });
 	    } else {
 	      this.setState({
-	        flag_two: true
-	      });
-	    }
-	    if (event.target.value && this.refs.two.value && this.refs.three.value) {
-	      this.setState({
-	        code: 'Y'
-	      });
-	    }
-	  },
-	
-	  two: function two(event) {
-	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
-	
-	    if (!re.test(event.target.value)) {
-	      event.target.value = "";
-	    }
-	    if (!this.refs.one.value) {
-	      this.refs.one.focus();
-	    }
-	    if (event.target.value && !this.refs.three.value) {
-	      this.refs.three.focus();
-	      this.setState({
-	        flag_three: true
-	      });
-	    }
-	    if (!event.target.value) {
-	      this.setState({
-	        code: 'N',
-	        flag_three: false
-	      });
-	    }
-	    if (this.refs.three.value) {
-	      this.setState({
-	        flag_three: true
-	      });
-	    }
-	    if (event.target.value && this.refs.two.value && this.refs.three.value) {
-	      this.setState({
-	        code: 'Y'
-	      });
-	    }
-	  },
-	
-	  three: function three(event) {
-	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
-	
-	    if (!re.test(event.target.value)) {
-	      event.target.value = "";
-	    }
-	    if (!this.refs.one.value) {
-	      this.refs.one.focus();
-	    }
-	    if (this.refs.one.value && !this.refs.two.value) {
-	      this.refs.two.focus();
-	    }
-	    if (event.target.value) {
-	      this.refs.three.blur();
-	      this.setState({
-	        code: 'Y'
-	      });
-	    }
-	    if (!event.target.value) {
-	      this.setState({
 	        code: 'N'
-	      });
-	    }
-	
-	    if (!this.refs.two.value) {
-	      this.setState({
-	        flag_three: false
-	      });
-	    }
-	    if (!this.refs.one.value) {
-	      this.setState({
-	        flag_two: false
-	      });
-	    }
-	    if (event.target.value && this.refs.two.value && this.refs.three.value) {
-	      this.setState({
-	        code: 'Y'
 	      });
 	    }
 	  },
 	
 	  common: function common() {
-	    if (!this.refs.one.value) {
-	      this.refs.one.focus();
-	    }
-	    if (this.refs.one.value && !this.refs.two.value) {
-	      this.refs.two.focus();
-	    }
+	    var inputBtn = document.querySelectorAll('input');
+	    inputBtn[this.state.active].focus();
 	  },
 	
 	  useCodeFun: function useCodeFun() {
@@ -189,24 +148,20 @@ webpackJsonp([1],{
 	    this.props.useCodeFun(input_val);
 	  },
 	  render: function render() {
+	
 	    if (!this.props.isShow) {
 	      if (this.refs.one != undefined && this.refs.two != undefined && this.refs.three != undefined) {
 	        var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
 	        this.props.useCodeFun(input_val);
 	      }
 	    }
+	
 	    return React.createElement(
 	      'div',
-	      { className: 'pretty' },
-	      React.createElement(
-	        'div',
-	        { className: 'box' },
-	        React.createElement('input', { type: 'text', pattern: '\\d*', className: 'inputbox select', maxLength: "1", ref: 'one', onChange: this.one }),
-	        React.createElement('input', { type: 'text', pattern: '\\d*', className: this.state.flag_two ? "inputbox select" : "inputbox", maxLength: "1", ref: 'two',
-	          onChange: this.two, onFocus: this.common }),
-	        React.createElement('input', { type: 'text', pattern: '\\d*', className: this.state.flag_three ? "inputbox select" : "inputbox", maxLength: "1", ref: 'three',
-	          onChange: this.three, onFocus: this.common })
-	      ),
+	      { className: 'box' },
+	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: "inputBtn select", ref: 'one' }),
+	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: this.state.twoFlag ? "inputBtn select" : "inputBtn", ref: 'two' }),
+	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: this.state.threeFlag ? "inputBtn select" : "inputBtn", ref: 'three' }),
 	      this.props.isShow ? this.state.code == 'Y' ? React.createElement(
 	        'div',
 	        { className: 'ver-btn click_btn', onClick: this.useCodeFun },

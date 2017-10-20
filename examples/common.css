@@ -1,8 +1,18 @@
-.pretty .box {
+a,
+img,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.box {
+  -webkit-user-select: none;
+  /*禁用手机浏览器的用户选择功能 */
+  -moz-user-select: none;
   margin: 15px 0;
   text-align: center;
 }
-.pretty .box .inputbox {
+.box .inputbox {
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   width: 48px;
@@ -12,10 +22,20 @@
   outline: none;
   -webkit-appearance: none;
 }
-.pretty .box .select {
+.box .inputBtn {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  text-align: center;
+  outline: none;
+  -webkit-appearance: none;
+}
+.box .select {
   border: 1px solid #ff7739;
 }
-.pretty .ver-btn {
+.ver-btn {
   background: #cecece;
   border-radius: 2px;
   width: 125px;
@@ -27,7 +47,7 @@
   font-size: 14px;
   text-align: center;
 }
-.pretty .click_btn {
+.click_btn {
   background: #ff7739;
 }
 

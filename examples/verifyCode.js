@@ -71,7 +71,7 @@ webpackJsonp([1],{
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    if (!nextProps.empty) {
 	      this.setState({
-	        active: '0'
+	        active: 0
 	      });
 	    }
 	  },
@@ -92,7 +92,8 @@ webpackJsonp([1],{
 	      }, false);
 	    }
 	  },
-	  listenKeyUp: function listenKeyUp() {
+	  listenKeyUp: function listenKeyUp(e) {
+	    e.preventDefault();
 	    var inputBtn = document.querySelectorAll('input');
 	    var re = /^[0-9]+[0-9]*]*$/; //判断字符串是否为数字
 	

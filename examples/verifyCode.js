@@ -73,11 +73,6 @@ webpackJsonp([1],{
 	      this.setState({
 	        active: '0'
 	      });
-	      console.log(this.refs.one.value);
-	      console.log(this.refs.two.value);
-	      this.refs.one.value = "";
-	      this.refs.two.value = "";
-	      this.refs.three.value = "";
 	    }
 	  },
 	  componentDidMount: function componentDidMount() {
@@ -99,7 +94,7 @@ webpackJsonp([1],{
 	  },
 	  listenKeyUp: function listenKeyUp() {
 	    var inputBtn = document.querySelectorAll('input');
-	    var re = /^[1-9]+[0-9]*]*$/; //判断字符串是否为数字
+	    var re = /^[0-9]+[0-9]*]*$/; //判断字符串是否为数字
 	
 	    if (!re.test(event.target.value)) {
 	      event.target.value = "";

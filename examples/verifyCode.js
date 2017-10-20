@@ -73,6 +73,8 @@ webpackJsonp([1],{
 	      this.setState({
 	        active: '0'
 	      });
+	      console.log(this.refs.one.value);
+	      console.log(this.refs.two.value);
 	      this.refs.one.value = "";
 	      this.refs.two.value = "";
 	      this.refs.three.value = "";

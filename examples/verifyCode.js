@@ -9,7 +9,7 @@ const Test = React.createClass({
  },
   render() {
     return (<div style={{margin: 0}}>
-      <VerifyCode isShow={true} useCodeFun={this.useCodeFun} btnText="立即使用"/>
+      <VerifyCode isShow={true} useCodeFun={this.useCodeFun} btnText="立即使用" />
     </div>);
   },
 });

@@ -46,143 +46,145 @@ webpackJsonp([1],{
 	
 	function noop() {}
 	var VerifyCode = React.createClass({
-	  displayName: 'VerifyCode',
+	    displayName: 'VerifyCode',
 	
-	  propTypes: {
-	    useCodeFun: React.PropTypes.func
-	  },
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      isShow: false,
-	      useCodeFun: noop,
-	      btnText: '',
-	      empty: false
-	    };
-	  },
+	    propTypes: {
+	        useCodeFun: React.PropTypes.func
+	    },
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            isShow: false,
+	            useCodeFun: noop,
+	            btnText: '',
+	            empty: false
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        return {
+	            code: "N",
+	            active: 0,
+	            twoFlag: false,
+	            threeFlag: false,
+	            oneValue: "",
+	            twoValue: "",
+	            threeValue: ""
+	        };
+	    },
 	
-	  getInitialState: function getInitialState() {
-	    return {
-	      active: 0,
-	      twoFlag: false,
-	      threeFlag: false,
-	      code: 'N'
-	    };
-	  },
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    if (!nextProps.empty) {
-	      this.setState({
-	        active: 0,
-	        twoFlag: false,
-	        threeFlag: false
-	      });
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        if (!nextProps.empty) {
+	            this.setState({
+	                code: "N",
+	                active: 0,
+	                twoFlag: false,
+	                threeFlag: false,
+	                oneValue: "",
+	                twoValue: "",
+	                threeValue: ""
+	            });
+	        }
+	    },
+	
+	    useCodeFun: function useCodeFun() {
+	        this.props.useCodeFun(this.refs.input.value);
+	    },
+	
+	    changeInput: function changeInput(event) {
+	        var re = /^[0-9]+[0-9]*]*$/; //判断字符串是否为数字
+	        if (!re.test(event.target.value)) {
+	            event.target.value = "";
+	        }
+	
+	        if (this.state.active == 0) {
+	            if (!isNaN(event.target.value) && event.target.value.length == '1') {
+	                this.setState({
+	                    twoFlag: true,
+	                    oneValue: event.target.value
+	                });
+	            }
+	            if (!isNaN(event.target.value) && event.target.value.length == '2') {
+	                this.setState({
+	                    threeFlag: true,
+	                    twoValue: event.target.value.charAt(event.target.value.length - 1)
+	                });
+	            }
+	            if (!isNaN(event.target.value) && event.target.value.length == '3') {
+	                this.refs.input.blur();
+	                this.setState({
+	                    code: 'Y',
+	                    threeValue: event.target.value.charAt(event.target.value.length - 1),
+	                    active: 1
+	                });
+	            }
+	        } else {
+	            console.log(!isNaN(event.target.value));
+	            if (!isNaN(event.target.value) && event.target.value.length == '2') {
+	                this.setState({
+	                    code: 'N',
+	                    threeValue: "",
+	                    threeFlag: false
+	                });
+	            }
+	            if (!isNaN(event.target.value) && event.target.value.length == '1') {
+	                this.setState({
+	                    twoValue: "",
+	                    twoFlag: false
+	                });
+	            }
+	            if (!isNaN(event.target.value) && event.target.value.length == '0') {
+	                this.setState({
+	                    oneValue: "",
+	                    active: 0
+	                });
+	            }
+	        }
+	    },
+	
+	    clickInput: function clickInput(event) {
+	        this.refs.input.focus();
+	    },
+	
+	    render: function render() {
+	        if (!this.props.isShow) {
+	            if (this.refs.input.value !== undefined) {
+	                this.props.useCodeFun(this.refs.input.value);
+	            }
+	        }
+	
+	        return React.createElement(
+	            'div',
+	            { className: 'pretty' },
+	            React.createElement('input', { type: 'text', unselectable: 'on', pattern: '\\d*', className: 'inputTruebox', maxLength: '3', ref: 'input', onChange: this.changeInput }),
+	            React.createElement(
+	                'div',
+	                { className: 'box' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'inputbox select', onClick: this.clickInput },
+	                    this.state.oneValue
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: this.state.twoFlag ? "inputbox select" : "inputbox", onClick: this.clickInput },
+	                    this.state.twoValue
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: this.state.threeFlag ? "inputbox select" : "inputbox", onClick: this.clickInput },
+	                    this.state.threeValue
+	                )
+	            ),
+	            this.props.isShow ? this.state.code == 'Y' ? React.createElement(
+	                'div',
+	                { className: 'ver-btn click_btn', onClick: this.useCodeFun },
+	                this.props.btnText
+	            ) : React.createElement(
+	                'div',
+	                { className: 'ver-btn' },
+	                this.props.btnText
+	            ) : ''
+	        );
 	    }
-	  },
-	  componentDidMount: function componentDidMount() {
-	
-	    var This = this;
-	    var inputBtn = document.querySelectorAll('input');
-	
-	    for (var i = 0; i < inputBtn.length; i++) {
-	
-	      inputBtn[i].addEventListener('focus', function (e) {
-	        e.preventDefault();
-	        this.addEventListener('keyup', This.listenKeyUp, false);
-	      }, false);
-	      inputBtn[i].addEventListener('blur', function (e) {
-	        e.preventDefault();
-	        this.removeEventListener('keyup', This.listenKeyUp, false);
-	      }, false);
-	    }
-	  },
-	  listenKeyUp: function listenKeyUp(e) {
-	    e.preventDefault();
-	    var inputBtn = document.querySelectorAll('input');
-	    var re = /^[0-9]+[0-9]*]*$/; //判断字符串是否为数字
-	
-	    if (!re.test(event.target.value)) {
-	      event.target.value = "";
-	    }
-	    if (!isNaN(event.target.value) && event.target.value.length != 0) {
-	      if (this.state.active == "0" && !isNaN(event.target.value) && event.target.value.length != 0) {
-	        this.setState({
-	          twoFlag: true
-	        });
-	      } else if (this.state.active == "1" && !isNaN(event.target.value) && event.target.value.length != 0) {
-	        this.setState({
-	          threeFlag: true
-	        });
-	      }
-	      if (this.state.active < 2) {
-	        this.setState({
-	          active: this.state.active + 1
-	        });
-	      }
-	      inputBtn[this.state.active].focus();
-	    } else if (event.target.value.length == 0) {
-	      if (this.state.active == '2') {
-	        this.setState({
-	          threeFlag: false
-	        });
-	      }
-	      if (this.state.active == '1') {
-	        this.setState({
-	          twoFlag: false
-	        });
-	      }
-	      if (this.state.active > 0) {
-	        this.setState({
-	          active: this.state.active - 1
-	        });
-	      }
-	      inputBtn[this.state.active].focus();
-	    }
-	
-	    if (this.refs.one.value && this.refs.two.value && this.refs.three.value) {
-	      this.setState({
-	        code: 'Y'
-	      });
-	    } else {
-	      this.setState({
-	        code: 'N'
-	      });
-	    }
-	  },
-	
-	  common: function common() {
-	    var inputBtn = document.querySelectorAll('input');
-	    inputBtn[this.state.active].focus();
-	  },
-	
-	  useCodeFun: function useCodeFun() {
-	    var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
-	    this.props.useCodeFun(input_val);
-	  },
-	  render: function render() {
-	
-	    if (!this.props.isShow) {
-	      if (this.refs.one != undefined && this.refs.two != undefined && this.refs.three != undefined) {
-	        var input_val = this.refs.one.value + this.refs.two.value + this.refs.three.value;
-	        this.props.useCodeFun(input_val);
-	      }
-	    }
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'box' },
-	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: "inputBtn select", ref: 'one' }),
-	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: this.state.twoFlag ? "inputBtn select" : "inputBtn", ref: 'two' }),
-	      React.createElement('input', { type: 'text', pattern: '\\d*', maxLength: '1', onClick: this.common, className: this.state.threeFlag ? "inputBtn select" : "inputBtn", ref: 'three' }),
-	      this.props.isShow ? this.state.code == 'Y' ? React.createElement(
-	        'div',
-	        { className: 'ver-btn click_btn', onClick: this.useCodeFun },
-	        this.props.btnText
-	      ) : React.createElement(
-	        'div',
-	        { className: 'ver-btn' },
-	        this.props.btnText
-	      ) : ''
-	    );
-	  }
 	});
 	
 	module.exports = VerifyCode;

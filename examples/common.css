@@ -9,18 +9,21 @@ textarea {
   -webkit-user-select: none;
   /*禁用手机浏览器的用户选择功能 */
   -moz-user-select: none;
-  margin: 15px 0;
-  text-align: center;
+  height: 63px;
+  margin: auto;
+  width: 180px;
 }
 .box .inputbox {
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   width: 48px;
   height: 48px;
+  line-height: 48px;
   margin-right: 10px;
   text-align: center;
   outline: none;
   -webkit-appearance: none;
+  float: left;
 }
 .box .inputBtn {
   border: 1px solid #e8e8e8;
@@ -49,6 +52,18 @@ textarea {
 }
 .click_btn {
   background: #ff7739;
+}
+.inputTruebox {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  height: 0;
+  width: 0;
+  color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  opacity: 0;
+  text-indent: -999px;
+  margin-left: -100%;
 }
 
 /*# sourceMappingURL=common.css.map*/

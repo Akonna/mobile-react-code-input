@@ -62,8 +62,8 @@ textarea {
   color: rgba(0, 0, 0, 0);
   -webkit-appearance: none;
   opacity: 0;
-  text-indent: -999px;
-  margin-left: -100%;
+  text-indent: -9999px;
+  margin-left: -300%;
 }
 
 /*# sourceMappingURL=common.css.map*/

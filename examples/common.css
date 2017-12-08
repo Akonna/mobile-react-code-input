@@ -65,5 +65,19 @@ textarea {
   text-indent: -9999px;
   margin-left: -300%;
 }
+.bar {
+  width: 800px;
+  height: 400px;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  position: relative;
+  left: 100px;
+}
+.inner {
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  background-color: red;
+}
 
 /*# sourceMappingURL=common.css.map*/

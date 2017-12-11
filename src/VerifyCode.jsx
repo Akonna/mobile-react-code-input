@@ -104,7 +104,7 @@ const VerifyCode = React.createClass({
 
     render() {
         if(!this.props.isShow){
-            if(this.refs.input.value !==undefined){
+            if(this.refs.input !==undefined  && this.refs.input.value !==undefined){
                 this.props.useCodeFun(this.refs.input.value);
             }
         }
